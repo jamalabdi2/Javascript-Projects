@@ -1,45 +1,31 @@
-const decreaseButton = document.getElementById("decreaseButton")
-const resetButton = document.getElementById("resetButton")
-const increaseButton = document.getElementById("increaseButton")
-const counter = document.getElementById("counter")
+const buttons = document.getElementsByClassName("btn")
+const counterDisplay = document.getElementById("counter")
+let counter = 0
 
-decreaseButton.addEventListener("click",decrement)
-increaseButton.addEventListener("click",increment)
-resetButton.addEventListener("click",reset)
-let counterValue;
+Array.from(buttons).forEach((buttonType) =>{
+    buttonType.addEventListener("click",handleButtons)
+    
+})
 
-function initializeCounter() {
-    counterValue = Number(counter.textContent);
-    updateCounterColor()
-}
-
-function updateCounterColor() {
-    if (counterValue < 0) {
-        counter.style.color = "red";
-    } else {
-        counter.style.color = "green";
+function handleButtons(){
+    if(this.classList.contains("increase")){
+        counterDisplay.textContent = ++counter
+    }else if(this.classList.contains("decrease")){
+        counterDisplay.textContent = --counter
+    }else{
+        counter = 0
+        counterDisplay.textContent = counter
     }
+    changeCounterColor()
 }
 
+function changeCounterColor(){
+    if (counter<0){
+        counterDisplay.style.color = "red"
+    }else if(counter>0){
+        counterDisplay.style.color = "green"
+    }else{
+        counterDisplay.style.color = "black"
+    }
 
-function increment(e){
-    counter.textContent = counterValue+=1
-    updateCounterColor()
 }
-
-function decrement(e){
-    counter.textContent = counterValue-=1
-    updateCounterColor()
-}
-
-function reset(e){
-    counterValue = 0
-    counter.textContent = counterValue
-    updateCounterColor();
-}
-
-initializeCounter()
-
-//set limit
-//increase by 5 or 10
-//use local storage
