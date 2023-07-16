@@ -1,0 +1,33 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+body{
+    background: linear-gradient(to right,#00539C,#EEA47F);
+    padding:0px;
+    margin: 0px;
+}
+.calculator-grid{
+    display: grid;
+    min-height: 100vh;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns:repeat(4,100px);
+    grid-template-rows:minmax(120px,auto) repeat(5,100px);
+}
+.calculator-grid >button{
+    border: 2px solid white;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: rgba(77,124,45,.75);
+    outline: none;
+}
+
+.calculator-grid >button:hover{
+    background-color: rgba(77,124,45,.95);
+}
+.span-two{
+    grid-column:span 2;
+}
