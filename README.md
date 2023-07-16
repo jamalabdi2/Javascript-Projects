@@ -1,1 +1,1 @@
-# Learning Javascript to use for building Django Frontend.
+* Learning Javascript to use for building Django Frontend.
