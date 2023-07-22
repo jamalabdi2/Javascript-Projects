@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="lists">
+        <h1 id="title" class="title">My Lists</h1>
+        <ul id="todoLists"> </ul>
+        <label for="addTodoList">+</label>
+        <input type="text" id="addTodoList">
+    </div>
+    <div class="search-wrapper" data-container>
+        <label for="search">Search List</label>
+        <input type="search" id="search">
+        <template data-user-template>
+            <div class="card">
+                <div class="title" data-title></div>
+                <div class="timeCreated" data-timeCreated></div>
+            </div>
+        </template>
+    </div>
+    
+</body>
+</html>

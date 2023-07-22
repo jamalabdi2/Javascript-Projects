@@ -14,7 +14,6 @@ function displayTime(){
     }else{
         session.innerHTML = "AM"
     }
-    // if(hrs)
 
 
 }

@@ -1,0 +1,43 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: rgb(56, 56, 178);
+    color:white;
+    font-weight: bolder;
+    display: flex;
+}
+.lists,.search-wrapper{
+    /* margin-top: 100px;
+    margin-left: 40px; */
+    margin:100px 0px 0px 40px;
+}
+li{
+    list-style: circle;
+    padding-bottom: 10px;
+}
+li a{
+    text-decoration: none;
+    color: white;
+
+}
+li a:hover{
+    color: rgb(155, 155, 169);
+    cursor: pointer;
+
+}
+input {
+    text-align: center;
+    font-size: large;
+    color: white;
+    border: none;
+    border-bottom: 2px solid;
+    border-radius: 0; /* This will remove any border radius, making it a straight line */
+    background: transparent; /* This will make the background transparent */
+    outline: none;
+}
+.search-wrapper{
+    border: 2px solid white;
+    padding: 2rem;
+    border-radius: 10px;
+}
