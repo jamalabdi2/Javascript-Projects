@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>json</title>
+    <style>
+        li{
+            padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <button id="button1">Get User</button>
+    <button id="button2">Get Users</button>
+    <br><br>
+
+    <h1>User</h1>
+    <table id="table"></table>
+    <div id="user"></div>
+
+    <h1>Users</h1>
+    <div id="users"></div>
+
+<script>
+    document.getElementById("button1").addEventListener("click",loadUser)
+    document.getElementById("button2").addEventListener("click",loadUsers)
+    function loadUser(){
+        const xhr = new XMLHttpRequest()
+        //open json 
+        xhr.open("GET","user.json",true)
+        xhr.onload = function(){
+            if(this.status == 200){
+                const userData = JSON.parse(this.responseText)
+                console.log(userData)
+                const div = document.getElementById("user")
+                const output = `
+                    <ul>
+                        <li> ID: ${userData.id}</li>
+                        <li> Name: ${userData.name}</li>
+                        <li> Age: ${userData.age}</li>
+                        <li>Email: ${userData.email}</li>
+                    </ul>
+                `
+                div.innerHTML = output
+            }
+            
+        }
+        xhr.send()
+        
+
+    }
+
+    function loadUsers(){
+        const httpRequest = new XMLHttpRequest()
+        httpRequest.open("GET","users.json",true)
+
+        httpRequest.onload = function(){
+            if(httpRequest.status == 200){
+                const usersData = JSON.parse(this.responseText)
+                const div1  = document.getElementById("users")
+                let output2 = "<ul>"
+                usersData.forEach(users =>{
+                    output2 += `
+                        <li> ID: ${users.id}</li>
+                        <li> Name: ${users.name}</li>
+                        <li> Age: ${users.age}</li>
+                        <li>Email: ${users.email}</li>
+                    
+                    `
+                    
+                })
+                output2+="</ul>"
+                div1.innerHTML = output2
+                console.log(output2)
+            }
+
+        }
+        httpRequest.send()
+    }
+    
+
+
+
+</script>
+    
+</body>
+</html>

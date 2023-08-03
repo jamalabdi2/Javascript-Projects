@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax3 external API</title>
+    <style>
+        .user{
+            border: 2px solid;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content:center ;
+            margin-bottom: 10px;
+            width: 500px;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 5px rgb(192, 181, 181);
+            
+        }
+        .user img{
+            background-color: blue;
+            border: 2px solid blueviolet;
+            border-radius: 50%;
+
+        }
+        .user img:hover{
+            scale: 1.5;
+            transition: 0.5s ease;
+          
+    
+        }
+    
+        .user li{
+            list-style: none;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #users{
+            display: grid;
+            grid-template-columns:repeat(2,600px);
+
+        }
+
+    </style>
+</head>
+<body>
+    <button id="button">Load Github Users</button>
+    <br><br>
+    <div id="users"></div>
+
+    <script>
+        document.getElementById("button").addEventListener("click",loadGithubUsers)
+
+        //load Github Users
+        function loadGithubUsers(){
+            const httpRequest = new XMLHttpRequest()
+            httpRequest.open("GET","https://api.github.com/users",true) 
+
+            httpRequest.onload = function(){
+                if(httpRequest.status == 200){
+                    const users = JSON.parse(httpRequest.responseText)
+                    let output = ''
+                    users.forEach(user =>{
+                        output+=`
+                        <div class="user">
+                            <img src=${user.avatar_url} width="70" height="70">
+                            <ul>
+                                <li>ID: ${user.id}</li>
+                                <li>Name: ${user.login}</li>
+
+                            </ul>
+
+                        </div>
+                        `
+                        
+                    })
+                
+                    document.getElementById("users").innerHTML = output
+                }
+            }
+            httpRequest.send()
+        
+        
+        }
+    </script>
+
+    
+</body>
+</html>

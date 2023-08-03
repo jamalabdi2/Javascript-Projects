@@ -1,0 +1,8 @@
+Mobile teledermoscopy is a field which assist patients to get early access to skin cancer detection for suspicious lesions using their own mobile phones without need of visiting a dermatologists. However, is challenging to accurately identify skin cancer from dermoscopic images, even for trained dermatologists due to difference that can be seen among various skin lesion. Skin lesions can have many characteristics such as shape, color, texture, and patterns, which can vary even within the same category of lesions.
+This study uses a single Convolutional Neural Network (CNN) that is trained end-to-end using images as input, and disease labels . 
+The training dataset comprises a substantial 129,450 clinical images, which is significantly larger than previous datasets and encompasses 2,032 distinct diseases.
+To evaluate the CNN's performance, model is compared  against 21 board-certified dermatologists using biopsy-proven clinical images. 
+
+Remarkably, the CNN achieves comparable performance to all the tested experts across. This demonstrates that artificial intelligence has the potential to classify skin cancer with a competence level on par with that of dermatologists. 
+
+This review article explores improvement in skin lesion diagnosis using deep learning methods. The main aim is to improve the existing research by incorporating mobile application that can potentially extends the reach of dermatologist outside of the clinic. The model is trained,converted into Tensorflow Lite and served as mobile application.

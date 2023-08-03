@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js" ></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container-item-1">
+            <label for="bill">Bill</label>
+            <input type="number" id="bill">
+            <label class="tip-label" for="tips">Select Tip %</label>
+            <div class="buttons-group">
+                <button class="btn fivePercentTip" value="5">5%</button>
+                <button class="btn tenPercentTip" value="10">10%</button>
+                <button class="btn fifteenPercentTip" value="15">15%</button>
+                <button class="btn twentyFivePercentTip" value="25">25%</button>
+                <button class="btn fiftyFivePercentTip" value="50">50%</button>
+                <input type="number" id="customTip">
+            </div>
+            <label class="people-label" for="numberOfPeople">Number of people</label>
+            <input type="number" id="numberOfPeople">
+        </div>
+        <div class="container-item-2">
+            <div class="display">
+                <p>Tip Amount <span>/ person</span></p>
+                <p id="tipDisplay">00</p>
+            </div>
+            <div class="display">
+                <p>Tip Amount <span>/ person</span></p>
+                <p id="tipAmountDisplay">00</p>
+            </div>
+            <button id="reset">RESET</button>
+
+            
+        </div>
+        
+    </div>
+</body>
+</html>

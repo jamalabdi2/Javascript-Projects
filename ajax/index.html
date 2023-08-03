@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list-item{
+            border: 2px solid;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            list-style: none;
+
+        }
+    </style>
+</head>
+<body>
+    <button id="button">Get Text File</button>
+    <div id="text"></div>
+    <ul id="list"></ul>
+
+
+    <script>
+        const button = document.getElementById("button")
+        button.addEventListener("click",loadText)
+
+        function loadText(){
+            //create xhr object
+            const xhr  = new XMLHttpRequest()
+
+            //open function - type-url/file, async
+
+            xhr.open("GET","sample.txt",true)
+            
+
+            console.log("READYSTATE: ",xhr.readyState)
+
+            // //used for loaders
+            // xhr.onprogresss = function(){
+            //     console.log("onprogress....")
+            //     console.log("READYSTATE: ",xhr.readyState)
+            // }
+            xhr.onload = function(){
+                console.log("READYSTATE: ",xhr.readyState)
+                if(this.status == 200){
+                    //console.log(this.responseText)
+                    // console.log(typeof(this.responseText))
+                    //document.getElementById("text").innerHTML = this.responseText
+                    const response = this.responseText.split("\n")
+                    const cleanArray = response.filter(item => item.trim() !== "")
+                    console.log(cleanArray)
+                    const ul = document.getElementById("list")
+                    ul.innerHTML = ""
+                    cleanArray.forEach((listItem) =>{
+                        const li = document.createElement("li")
+                        li.textContent = listItem
+                        li.classList = "list-item"
+
+                        ul.appendChild(li)
+                    })
+
+                }else if(this.status = 404){
+                    document.getElementById("text").innerHTML = "Not Found"
+                }
+                
+            }
+
+            // error
+            xhr.onerror = function(){
+                console.log("requests error")
+            }
+
+            //old way of doing it
+            // xhr.onreadystatechange = function(){
+            //     //check if read state is 4 and status is 200
+            //     if(this.readyState ==4 && this.status == 200){
+            //         console.log(this.responseText)
+            //     }
+            // }
+            //sends requests
+            xhr.send()
+        }
+    </script>
+    
+</body>
+</html>
+
+
+
